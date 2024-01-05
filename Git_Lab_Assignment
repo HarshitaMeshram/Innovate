@@ -1,0 +1,381 @@
+Here is GIT Hands on Lab 02.
+
+1. Establish a remote "repository" with a meaningful project name. Generate DEV/QA/UAT/PROD branches within the remote repository. Clone the repository
+ locally. Create a local branch named after you, add files, commit them locally, and then push that branch to the remote repository. Initiate a Pull Request 
+ PR) and subsequently merge your branch into the Dev branch.
+
+
+root@DESKTOP-DA2RDP0:webstore# cd
+root@DESKTOP-DA2RDP0:~# mkdir web
+root@DESKTOP-DA2RDP0:~# cd web
+root@DESKTOP-DA2RDP0:web# git init
+Initialized empty Git repository in /root/web/.git/
+root@DESKTOP-DA2RDP0:web#
+root@DESKTOP-DA2RDP0:web# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  4 17:59 ./
+drwx------ 12 root root 4096 Jan  4 17:59 ../
+drwxr-xr-x  7 root root 4096 Jan  4 17:59 .git/
+root@DESKTOP-DA2RDP0:web#
+root@DESKTOP-DA2RDP0:web# git clone git@github.com:HarshitaMeshram/developer.git
+Cloning into 'developer'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+root@DESKTOP-DA2RDP0:web#
+
+root@DESKTOP-DA2RDP0:web# git status
+On branch develop
+nothing to commit, working tree clean
+root@DESKTOP-DA2RDP0:web#
+
+root@DESKTOP-DA2RDP0:web# ll
+total 16
+drwxr-xr-x  4 root root 4096 Jan  4 18:01 ./
+drwx------ 12 root root 4096 Jan  4 17:59 ../
+drwxr-xr-x  8 root root 4096 Jan  4 18:02 .git/
+drwxr-xr-x  3 root root 4096 Jan  4 18:01 developer/
+-rw-r--r--  1 root root    0 Jan  4 18:01 file01
+-rw-r--r--  1 root root    0 Jan  4 18:01 file02
+-rw-r--r--  1 root root    0 Jan  4 18:01 file03
+
+root@DESKTOP-DA2RDP0:web# cd developer/
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer# ll
+total 16
+drwxr-xr-x 3 root root 4096 Jan  4 18:01 ./
+drwxr-xr-x 4 root root 4096 Jan  4 18:01 ../
+drwxr-xr-x 8 root root 4096 Jan  4 18:02 .git/
+-rw-r--r-- 1 root root   11 Jan  4 18:01 README.md
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer# touch file01 file02 file03
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer# git add .
+root@DESKTOP-DA2RDP0:developer# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file01
+        new file:   file02
+        new file:   file03
+
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer# git commit -m "web file01 file02 file03"
+[main 8b42664] web file01 file02 file03
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file01
+ create mode 100644 file02
+ create mode 100644 file03
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer# git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 288 bytes | 96.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:HarshitaMeshram/developer.git
+   f3ac171..8b42664  main -> main
+root@DESKTOP-DA2RDP0:developer#
+root@DESKTOP-DA2RDP0:developer#
+
+Create PR 
+Merge 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Set up a remote "repository" with a project name that holds significance. In the master branch of the remote repository, create a file named demo.txt. 
+After creating the file, clone the repository locally. Within the local repository, create three branches: feature/login, feature/mainline, and release. 
+Add a login.txt file to the feature/login branch and push the branch to the remote repository. Create a PR, approve it, and then merge the feature/login branch
+into the remote master branch.
+
+====================================================
+root@DESKTOP-DA2RDP0:dark# git init
+Initialized empty Git repository in /root/dark/.git/
+root@DESKTOP-DA2RDP0:dark# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  4 18:40 ./
+drwx------ 14 root root 4096 Jan  4 18:39 ../
+drwxr-xr-x  7 root root 4096 Jan  4 18:40 .git/
+root@DESKTOP-DA2RDP0:dark# git clone git@github.com:HarshitaMeshram/admin.git
+Cloning into 'admin'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+root@DESKTOP-DA2RDP0:dark# ll
+total 16
+drwxr-xr-x  4 root root 4096 Jan  4 18:40 ./
+drwx------ 14 root root 4096 Jan  4 18:39 ../
+drwxr-xr-x  7 root root 4096 Jan  4 18:40 .git/
+drwxr-xr-x  3 root root 4096 Jan  4 18:40 admin/
+root@DESKTOP-DA2RDP0:dark#
+root@DESKTOP-DA2RDP0:dark# cd admin/
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# ll
+total 20
+drwxr-xr-x 3 root root 4096 Jan  4 18:40 ./
+drwxr-xr-x 4 root root 4096 Jan  4 18:40 ../
+drwxr-xr-x 8 root root 4096 Jan  4 18:40 .git/
+-rw-r--r-- 1 root root    7 Jan  4 18:40 README.md
+-rw-r--r-- 1 root root   35 Jan  4 18:40 demo.txt
+root@DESKTOP-DA2RDP0:admin# git checkout -b feature/login
+Switched to a new branch 'feature/login'
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+* feature/login
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+  feature/login
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git checkout -b feature/mainline
+Switched to a new branch 'feature/mainline'
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+  feature/login
+* feature/mainline
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git checkout -b release
+Switched to a new branch 'release'
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+  feature/login
+  feature/mainline
+  main
+* release
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin# git checkout feature/login
+Switched to branch 'feature/login'
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# touch login.txt
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git add .
+root@DESKTOP-DA2RDP0:admin# git commit -m "login.txt"
+[feature/login f318deb] login.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 login.txt
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git remote -v
+origin  git@github.com:HarshitaMeshram/admin.git (fetch)
+origin  git@github.com:HarshitaMeshram/admin.git (push)
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git push origin feature/login
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 310 bytes | 310.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature/login' on GitHub by visiting:
+remote:      https://github.com/HarshitaMeshram/admin/pull/new/feature/login
+remote:
+To github.com:HarshitaMeshram/admin.git
+ * [new branch]      feature/login -> feature/login
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin#
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Populate the local repository's feature/mainline branch with files and push that branch to the remote repository. Add additional files to the
+ feature/mainline remote branch through the UI. Fetch the latest changes on the local feature/mainline using the Fetch and Pull commands.
+ 
+ root@DESKTOP-DA2RDP0:~# git clone git@github.com:HarshitaMeshram/admin.git
+fatal: destination path 'admin' already exists and is not an empty directory.
+root@DESKTOP-DA2RDP0:~# cd admin/
+root@DESKTOP-DA2RDP0:admin# git init
+Reinitialized existing Git repository in /root/admin/.git/
+root@DESKTOP-DA2RDP0:admin# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan  4 18:37 ./
+drwx------ 14 root root 4096 Jan  5 11:15 ../
+drwxr-xr-x  8 root root 4096 Jan  5 11:37 .git/
+-rw-r--r--  1 root root    7 Jan  4 18:37 README.md
+-rw-r--r--  1 root root   35 Jan  4 18:37 demo.txt
+root@DESKTOP-DA2RDP0:admin# git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git checkout -b feature/mainline
+Switched to a new branch 'feature/mainline'
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# touch file01 file02 file03
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git push origin feature/mainline
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 1.26 KiB | 1.26 MiB/s, done.
+Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature/mainline' on GitHub by visiting:
+remote:      https://github.com/HarshitaMeshram/admin/pull/new/feature/mainline
+remote:
+To github.com:HarshitaMeshram/admin.git
+ * [new branch]      feature/mainline -> feature/mainline
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git branch -a
+* feature/mainline
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/feature/mainline
+  remotes/origin/main
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan  5 11:38 ./
+drwx------ 14 root root 4096 Jan  5 11:49 ../
+drwxr-xr-x  8 root root 4096 Jan  5 11:38 .git/
+-rw-r--r--  1 root root    7 Jan  4 18:37 README.md
+-rw-r--r--  1 root root   35 Jan  4 18:37 demo.txt
+-rw-r--r--  1 root root    0 Jan  5 11:38 file01
+-rw-r--r--  1 root root    0 Jan  5 11:38 file02
+-rw-r--r--  1 root root    0 Jan  5 11:38 file03
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git add .
+root@DESKTOP-DA2RDP0:admin# git commit -m "Adding file01 file02 file03"
+[feature/mainline 644aeba] Adding file01 file02 file03
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file01
+ create mode 100644 file02
+ create mode 100644 file03
+root@DESKTOP-DA2RDP0:admin#
+root@DESKTOP-DA2RDP0:admin# git push origin feature/mainline
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 324 bytes | 324.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:HarshitaMeshram/admin.git
+   6bc46f4..644aeba  feature/mainline -> feature/mainline
+root@DESKTOP-DA2RDP0:admin# branch -a
+Command 'branch' not found, but can be installed with:
+apt install rheolef
+root@DESKTOP-DA2RDP0:admin# git branch -a
+* feature/mainline
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/feature/mainline
+  remotes/origin/main
+
+root@DESKTOP-DA2RDP0:admin# ll
+total 20
+drwxr-xr-x  3 root root 4096 Jan  5 11:38 ./
+drwx------ 14 root root 4096 Jan  5 11:57 ../
+drwxr-xr-x  8 root root 4096 Jan  5 11:57 .git/
+-rw-r--r--  1 root root    7 Jan  4 18:37 README.md
+-rw-r--r--  1 root root   35 Jan  4 18:37 demo.txt
+-rw-r--r--  1 root root    0 Jan  5 11:38 file01
+-rw-r--r--  1 root root    0 Jan  5 11:38 file02
+-rw-r--r--  1 root root    0 Jan  5 11:38 file03
+
+root@DESKTOP-DA2RDP0:admin# git pull origin feature/mainline
+From github.com:HarshitaMeshram/admin
+ * branch            feature/mainline -> FETCH_HEAD
+Updating 644aeba..71574a1
+Fast-forward
+ Mode01 | 1 +
+ Mode02 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 Mode01
+ create mode 100644 Mode02
+root@DESKTOP-DA2RDP0:admin# ll
+total 28
+drwxr-xr-x  3 root root 4096 Jan  5 12:00 ./
+drwx------ 14 root root 4096 Jan  5 11:57 ../
+drwxr-xr-x  8 root root 4096 Jan  5 12:00 .git/
+-rw-r--r--  1 root root    1 Jan  5 12:00 Mode01
+-rw-r--r--  1 root root    1 Jan  5 12:00 Mode02
+-rw-r--r--  1 root root    7 Jan  4 18:37 README.md
+-rw-r--r--  1 root root   35 Jan  4 18:37 demo.txt
+-rw-r--r--  1 root root    0 Jan  5 11:38 file01
+-rw-r--r--  1 root root    0 Jan  5 11:38 file02
+-rw-r--r--  1 root root    0 Jan  5 11:38 file03
+root@DESKTOP-DA2RDP0:admin#
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.4. Establish a remote "repository" for a dashboard application with a meaningful project name. Create the following branches: master, release, 
+hotfix, feature/login, feature/submit, and feature/dashboard. Clone the repository locally. Create a local branch named after you, add files, commit
+them locally, and then push that branch to the remote repository. Create a PR and merge your branch into the respective branch.
+
+root@DESKTOP-DA2RDP0:admin# cd
+root@DESKTOP-DA2RDP0:~# mkdir cloud
+mkdir: cannot create directory ‘cloud’: File exists
+root@DESKTOP-DA2RDP0:~# mkdir black
+root@DESKTOP-DA2RDP0:~# cd black
+root@DESKTOP-DA2RDP0:black# git clone git@github.com:HarshitaMeshram/Innovate.git
+Cloning into 'Innovate'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+root@DESKTOP-DA2RDP0:black# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  5 12:15 ./
+drwx------ 15 root root 4096 Jan  5 12:15 ../
+drwxr-xr-x  3 root root 4096 Jan  5 12:15 Innovate/
+root@DESKTOP-DA2RDP0:black# cd Innovate/
+root@DESKTOP-DA2RDP0:Innovate#
+root@DESKTOP-DA2RDP0:Innovate# git checkout -b integrate
+Switched to a new branch 'integrate'
+root@DESKTOP-DA2RDP0:Innovate#
+root@DESKTOP-DA2RDP0:Innovate# touch cloud01 cloud02 cloud03
+root@DESKTOP-DA2RDP0:Innovate#
+root@DESKTOP-DA2RDP0:Innovate# git add .
+root@DESKTOP-DA2RDP0:Innovate# git commit -m "adding 3 files"
+[integrate b497268] adding 3 files
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cloud01
+ create mode 100644 cloud02
+ create mode 100644 cloud03
+root@DESKTOP-DA2RDP0:Innovate#
+root@DESKTOP-DA2RDP0:Innovate# git push origin integrate
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 289 bytes | 289.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'integrate' on GitHub by visiting:
+remote:      https://github.com/HarshitaMeshram/Innovate/pull/new/integrate
+remote:
+To github.com:HarshitaMeshram/Innovate.git
+ * [new branch]      integrate -> integrate
+root@DESKTOP-DA2RDP0:Innovate#
+
+Creating PR 
+
+and Merge 
+
+
